@@ -2,11 +2,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Downshift from 'downshift'
-import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
+import {Route, Link } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import { noAuto } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core'
 
 class Search extends Component {
   constructor() {
@@ -20,7 +17,6 @@ class Search extends Component {
     }
   }
   componentDidMount() {
-    console.log("Search.JS MOUNTED")
     this.getKeywordList()
   }  
 
@@ -80,7 +76,6 @@ class Search extends Component {
       return item.keywords.includes(this.state.placeholder.toLowerCase())
     })
     
-    // console.log(userSearch);
     this.setState({
       submitSearch: userSearch,
       searchInput: this.state.placeholder,
@@ -128,7 +123,6 @@ class Search extends Component {
       if (each == userKeyword) {
         answers.push(keyword) 
       }});
-    console.log(answers)
   };
 
   clearResults = () => {
@@ -266,7 +260,6 @@ class Search extends Component {
                 ) : null}
 
                 <h2>{this.state.searchInput}</h2>
-                <FontAwesomeIcon icon="circle" />
 
                 {this.state.submitSearch.map(result => {
                   return (

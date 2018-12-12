@@ -118,39 +118,37 @@ header button:hover {
 }
 
 .arrowLeft {
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+  justify-content: flex-start; */
   width: 50%;
 }
 
 .arrowLeft a {
-  width: 350px;
+ width: 350px;
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: flex-start;
  text-decoration: none;
  color: #3e3e3e;
  font-weight: bold;
+ margin-left: 25px;
  /* padding-left: 10%; */
 }
 
 .arrowLeft a img {
   width: 10%;
 }
-.buttonRight {
-  display: flex;
-  width: 50%;
-  justify-content: flex-end;
-  margin-right: 11%;
-}
-.buttonRight button {
+
+.navigation button {
   padding: 10px;
   width: 175px;
   background: #377eb8;
   color: white;
   font-weight: bold;
+  margin-right: 25px;
 }
-.buttonRight button:hover {
+
+.navigation button:hover {
   background: #81bce3;
 }
 .navigation{
@@ -160,6 +158,8 @@ header button:hover {
   justify-content: space-between;
   align-items: center;
 }
+
+
 
 .dropDaddy form {
   padding-top: 100px;
@@ -534,7 +534,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 5px;
+  padding: 10px 5%;
 }
 footer img {
   margin-left: 10px;

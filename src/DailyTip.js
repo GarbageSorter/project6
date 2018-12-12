@@ -70,7 +70,6 @@ class Text extends Component {
             <div className="center-div">
                 <h3>{this.props.title}</h3>
                 <p>{this.props.tip}</p>
-                {/* <img src={this.props.picture} height="200" alt="logo"/> */}
             </div>
         )
     }
@@ -88,7 +87,7 @@ class Buttons extends Component {
                 type="button"
                 className="nextTip"
                 onClick={this.props.handleNewTip}>New Tip</button> 
-                <a target="_blank" href={`https://twitter.com/intent/tweet/?text= 🔥Hot Tip for ${this.props.title}: ${this.props.tip}`}>
+                <a target="_blank" href={`https://twitter.com/intent/tweet/?text= 🔥Hot ${this.props.title} ${this.props.tip}`}>
                 <button className="tweet">Tweet Tip</button></a>   
             </div>
         )
