@@ -141,7 +141,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="mainSearch wrapper">
+      <div className="mainSearch wrapper" >
 
        
         <Route

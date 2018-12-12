@@ -264,7 +264,7 @@ class Dashboard extends Component {
                   type="number"
                   value={this.state.garbageBags}
                   onClick={this.addBag} >
-                  Garbage {this.state.garbageBags}
+                  Garbage +{this.state.garbageBags}
                 </button>
               </div>
           
@@ -278,7 +278,7 @@ class Dashboard extends Component {
                   type="number"
                   value={this.state.greenBags}
                   onClick={this.addBag} >
-                  Green Bin {this.state.greenBags}
+                 Green Bin +{this.state.greenBags}
                 </button>
               </div>
                 
@@ -292,12 +292,19 @@ class Dashboard extends Component {
                   type="number"
                   value={this.state.blueBags}
                   onClick={this.addBag} >
-                  Recyling {this.state.blueBags}
+                  Recyling +{this.state.blueBags}
                 </button>
               </div>
               </div>
-               
-                <input type="submit" />
+                
+                <label htmlFor="submitTracking" className="visuallyhidden" >Submit items to track your progress</label>
+                <input 
+                id="submitTracking"
+                type="submit" 
+                value="Submit"
+                className="submitTracking"
+                /> 
+                
               </form>
             </main>
         </div>

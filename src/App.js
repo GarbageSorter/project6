@@ -5,6 +5,7 @@ import "./App.css";
 import Search from "./Search";
 import Dashboard from "./Dashboard";
 import DailyTip from "./DailyTip";
+import Footer from './Footer'
 import Responsiveline from "./ResponsiveLine";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -105,6 +106,7 @@ class App extends Component {
     <Router>
     <div className="App">
       <header>
+        <div className="headerContainer wrapper">
         <h1>Garbage Sorter</h1>
 
         {!this.state.user && <Redirect to="/" />}
@@ -131,6 +133,7 @@ class App extends Component {
           </div>
 
         </div>
+      </div>
       </header>
 
         <div className="routerDaddy">
@@ -159,8 +162,10 @@ class App extends Component {
         <div className="dailyTip">
           <DailyTip />
         </div>
+      <Footer />
       </div>
     </Router>
+    
       
   
   );
