@@ -10,7 +10,7 @@ class Responsivepie extends Component {
    render() {
       if (!this.props) return null && console.log("you fail"); {
       return (
-         <div className="PieApp">
+         <div className="PieApp wrapper">
             {this.props.greenBags === 0 && this.props.blueBags === 0 && this.props.garbageBags === 0 ? <div className="placeHolderStuff">
             <img src={require('./assets/Racoon.png')} alt="A illustration of a Racoon in a trash can" />
             <h3>Start Logging Your Weekly Garbage</h3>

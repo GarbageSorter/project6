@@ -53,7 +53,6 @@ class Search extends Component {
         let cleanArray = Array.from(superSet1) 
           
         //take each index in our Array and turn it into an individual object that has a specified KEY that we decide. For each
-        
         let cleanArray2 = cleanArray.map(item => {
             return {
               name: item
