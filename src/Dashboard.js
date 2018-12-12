@@ -29,8 +29,6 @@ class Dashboard extends Component {
 
 
   componentDidUpdate(prevProp){
-    console.log("PREVPROP", prevProp)
-    // console.log("prevstate", prevState)
       if (this.props.user !== prevProp.user && this.props.user !== null) {
         this.arrayOfEight()
         this.currentFunction()
@@ -61,7 +59,6 @@ class Dashboard extends Component {
 
   //function that creates an ARRAY of 8 most recent items in PAST node to pass to State if there is nothing in PAST, if not it sets the content of PAST to state
   arrayOfEight = () => {
-    console.log(this.props.user.uid)
     const dbRefpast = firebase.database().ref(`/${this.props.user.uid}/past`);
     //sets up a fall-back incase PAST node is empty
     let empty =
@@ -185,11 +182,8 @@ class Dashboard extends Component {
     let firebaseArray;
     dbRefPast.once('value', (snapshot) => {
       firebaseArray = snapshot.val();
-      console.log("in the .then of saveWeek")
-      // console.log(firebaseArray)
     }).then((snapshot) => {
   
-      console.log("before", firebaseArray)
       firebaseArray.push(pastWeek)
       dbRefPast.update(firebaseArray)
       dbRefCurrent.update(newWeek)
@@ -202,7 +196,7 @@ class Dashboard extends Component {
     e.preventDefault();
     swal({
       title: "Are you sure?",
-      text: "submit garbage stats",
+      text: "Submit your week",
       buttons: true,
     }).then((submit) => {
       // const deRefpast=  databaseReference.child("Users").child(user.getUid()).setValue(userInformations);
@@ -238,10 +232,9 @@ class Dashboard extends Component {
                 <Link to="/"><img src={require("./assets/arrowLeft.png")} alt="arrow pointing left" /> Return to Search  </Link>
               </div>
 
-              <div className="buttonRight">
                 <Route exact path="/" component={Search}/>
                 <button onClick={this.switchView}>Switch View</button>
-              </div>
+                {/* </div> */}
             </div>
 
             {this.state.showPie ? 
@@ -264,7 +257,7 @@ class Dashboard extends Component {
                   type="number"
                   value={this.state.garbageBags}
                   onClick={this.addBag} >
-                  Garbage {this.state.garbageBags}
+                  Garbage +{this.state.garbageBags}
                 </button>
               </div>
           
@@ -278,7 +271,7 @@ class Dashboard extends Component {
                   type="number"
                   value={this.state.greenBags}
                   onClick={this.addBag} >
-                  Green Bin {this.state.greenBags}
+                 Green Bin +{this.state.greenBags}
                 </button>
               </div>
                 
@@ -292,12 +285,19 @@ class Dashboard extends Component {
                   type="number"
                   value={this.state.blueBags}
                   onClick={this.addBag} >
-                  Recyling {this.state.blueBags}
+                  Recyling +{this.state.blueBags}
                 </button>
               </div>
               </div>
-               
-                <input type="submit" />
+                
+                <label htmlFor="submitTracking" className="visuallyhidden" >Submit items to track your progress</label>
+                <input 
+                id="submitTracking"
+                type="submit" 
+                value="Submit"
+                className="submitTracking"
+                /> 
+                
               </form>
             </main>
         </div>

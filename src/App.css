@@ -28,21 +28,27 @@ body {
 }
 
 /* HEADER STYLE START */
-header {
+.headerContainer {
   background: #ebf8e7;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+header {
+  background: #ebf8e7;
+}
+
 .headerUser{
   display: flex;
   align-items: center;
-  padding-right: 25px;
+  justify-content: flex-end;
   width: 50%;
 }
-.userImage {
+
+/* .userImage {
   width: 25%;
-}
+} */
 .userImage img {
   border-radius: 50%;
   border: 2px solid #00702e;
@@ -50,7 +56,6 @@ header {
 header h1 {
   text-transform: uppercase;
   display: flex;
-  padding-left: 50px;
   width: 50%;
   align-items: center;
   justify-content: flex-start;
@@ -113,39 +118,37 @@ header button:hover {
 }
 
 .arrowLeft {
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+  justify-content: flex-start; */
   width: 50%;
 }
 
 .arrowLeft a {
-  width: 350px;
+ width: 350px;
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: flex-start;
  text-decoration: none;
  color: #3e3e3e;
  font-weight: bold;
+ margin-left: 25px;
  /* padding-left: 10%; */
 }
 
 .arrowLeft a img {
   width: 10%;
 }
-.buttonRight {
-  display: flex;
-  width: 50%;
-  justify-content: flex-end;
-  margin-right: 11%;
-}
-.buttonRight button {
+
+.navigation button {
   padding: 10px;
   width: 175px;
   background: #377eb8;
   color: white;
   font-weight: bold;
+  margin-right: 25px;
 }
-.buttonRight button:hover {
+
+.navigation button:hover {
   background: #81bce3;
 }
 .navigation{
@@ -155,6 +158,8 @@ header button:hover {
   justify-content: space-between;
   align-items: center;
 }
+
+
 
 .dropDaddy form {
   padding-top: 100px;
@@ -173,12 +178,13 @@ header button:hover {
 }
 .mainSearch{
   display: flex;
-  justify-content:  space-evenly;
+  justify-content:  space-between;
   position: relative;
-
+  min-height: 70vh;
 }
+
 .mainSearchImg {
-  width: 40%;
+  width: 50%;
   display: flex;
   align-items: flex-start;
   padding: 25px 0;
@@ -197,12 +203,22 @@ header button:hover {
   padding: 25px;
   text-align: center;
 }
+
+.mainSearch input[type='text']:active,
+.mainSearch input[type='text']:hover{
+  transition: 0.15s ease-in;
+  outline: none !important;
+  box-shadow: 0 0 10px #228B22;
+}
+
+
 input:placeholder-shown{
   font-style: italic;
   color: black;
 }
 .mainSearch  input[type='submit']{
   margin-top: 20px;
+  padding: 10px 20px;
   border-radius: 0px;
   background: #00702e;
   color: #ebf8e7;
@@ -245,8 +261,29 @@ input:placeholder-shown{
 
 
 /* //DASHBOARD STYLES */
+
+/* Button Styling */
+button, input[type='submit'] {
+    border: none;
+    /* padding: 5px; */
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.PieApp text, 
+.LineApp text {
+  font-weight: bold;
+  height: 50px;
+}
+
 .PieApp {
-  height: 500px;
+  height: 400px;
   background: #f4f4f4;
   display: flex;
   align-items: center;
@@ -260,7 +297,7 @@ input:placeholder-shown{
   text-align: center;
 }
 .LineApp {
-  height: 500px;
+  height: 400px;
   background: #f4f4f4;
 }
 main {
@@ -272,10 +309,15 @@ main {
   margin: 0 auto;
   font-size: 1.4rem;
 }
+.goalsForm {
+  padding-bottom: 25px;
+}
+
 .goalsForm img {
   width: 20%;
   margin: 0 auto;
 }
+
 .buttonBoxGallery {
   display: flex;
   justify-content: center;
@@ -290,6 +332,32 @@ main {
   width: 33%;
 }
 
+.buttonBox button {
+  /* border: 1px solid #00702e; */
+  box-shadow: 0 4px 2px -2px grey;
+  padding: 5px 20px;
+  background: #377eb8;
+  color: white;
+  font-weight: bold;
+}
+
+.buttonBox button:hover {
+  background: #81bce3;
+}
+
+.submitTracking {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  background-color: #00702e;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.submitTracking:hover {
+  transform: scale(1.2);
+}
+
 /* //Pie chart styles */
 .placeHolderStuff {
   color: #00702e;
@@ -300,36 +368,25 @@ main {
 }
 .swal-button {
   border-radius: 50px;
+  color: white;
   background-color:  #377eb8;;
   font-size: 1.4rem;
 }
 .swal-text {
   font-size: 2rem;
 }
+
+.swal-button--confirm:hover {
+  background: white;
+}
+
 .swal-button--cancel:hover {
   background: red;
 }
-.swal-button:hover {
-  background: #81bce3;
-}
+
 /* //END OF DASHBOARD STYLES */
 
 
-/* Button Styling */
-button, input[type='submit'] {
-    border: none;
-    padding: 5px;
-    margin: 5px;
-    text-decoration: none;
-    background: #f9f9f9;
-    color: black;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
 
 button:focus,
 input[type='submit']:focus {
@@ -338,7 +395,7 @@ input[type='submit']:focus {
 
 /* //RANDOM TIP STYLES */
 .dailyTip {
-  padding: 50px 10px;
+  padding: 15px 10px;
   margin: 0 auto;
   background: #ebf8e7;
 }
@@ -346,6 +403,7 @@ input[type='submit']:focus {
   color: #3e3e3e;
   text-transform: capitalize;
   font-size: 2.6rem;
+  margin: 10px auto;
 }
 .dailyTip p {
   color: black;
@@ -357,7 +415,7 @@ input[type='submit']:focus {
 .nextTip,
 .tweet {
   color: #f9f9f9;
-  background:#709d6c;
+  background: #00702e;
   border: 1px solid #f9f9f9;
   border-radius: 50px;
   padding: 10px;
@@ -365,9 +423,10 @@ input[type='submit']:focus {
   font-weight: bold;
   cursor: pointer;
   outline: inherit;
+  margin-bottom: 5px;
 }
 .nextTip:hover, .tweet:hover {
-  background: #00702e;
+  background: #709d6c;
 }
 /* END OF RANDOM TIP STYLES */
 
@@ -466,3 +525,62 @@ input[type='submit']:focus {
     width: 80%;
   }
 }
+
+/* Footer Styles */
+footer {
+  background: #00702e;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+}
+footer img {
+  margin-left: 10px;
+  height: 25px;
+}
+footer .apiCredit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 5px;
+}
+
+footer .gitLink {
+  display: flex;
+  align-items: center;
+}
+
+footer a {
+  padding: 0px 10px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 650px) {
+    footer {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    }
+
+    footer .gitLink {
+      flex-direction: column;
+    }
+  }

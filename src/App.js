@@ -5,12 +5,11 @@ import "./App.css";
 import Search from "./Search";
 import Dashboard from "./Dashboard";
 import DailyTip from "./DailyTip";
-import Responsiveline from "./ResponsiveLine";
+import Footer from './Footer'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faUserCircle, faTint } from '@fortawesome/free-solid-svg-icons'
+import {faUserCircle} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faUserCircle)
 
@@ -41,41 +40,14 @@ class App extends Component {
            })
         });
       }
+
     });
   }
-
-  handleSubmit = e => {
-    e.preventDefault();
-    const newUserGoal = {
-      date: new Date().toDateString(),
-      body: this.state.newGoal,
-      body2: this.state.numberOfBags
-    };
-    this.setState({
-      newGoal: ""
-    });
-
-    // push data to firebase here
-    //Create a unique reference in the Firebase database that is connected to this specific User's ID
-    const dbRef = firebase.database().ref(`/${this.state.user.uid}`)
-    dbRef.push(newUserGoal);
-    
-  };
-
-  handleChange = e => {
-    const target = e.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;    
-    this.setState({
-      [e.target.id]: e.target.value,
-      [name]: value
-    });
-  };  
+ 
 
 
   logIn = () => {
     auth.signInWithPopup(provider).then((result) => {
-      // console.log(result);
       this.setState(
         {
         user: result.user,
@@ -105,9 +77,10 @@ class App extends Component {
     <Router>
     <div className="App">
       <header>
+        <div className="headerContainer wrapper">
         <h1>Garbage Sorter</h1>
 
-        {!this.state.user && <Redirect to="/" />}
+        {/* {!this.state.user && <Redirect to="/" />} */}
 
         <div className="headerUser">
           <div className="buttons"> 
@@ -131,6 +104,7 @@ class App extends Component {
           </div>
 
         </div>
+      </div>
       </header>
 
         <div className="routerDaddy">
@@ -148,19 +122,23 @@ class App extends Component {
           <Route
             path="/dashboard"
             render=
-            {(props) =>
+            {(props) => 
+              this.state.user ?
             <Dashboard
             user={this.state.user}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            />}
+            />
+          : 
+        <Redirect to="/"/>
+      }
           />
         </div>
         <div className="dailyTip">
           <DailyTip />
         </div>
+      <Footer />
       </div>
     </Router>
+    
       
   
   );
