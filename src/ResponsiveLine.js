@@ -13,9 +13,9 @@ class Responsiveline extends Component {
    }
 
    render() {
-      if (!this.props.lineGraph) return null && console.log("you fail");
+      if (!this.props.lineGraph) return null;
       return(
-         <div className="LineApp">
+         <div className="LineApp wrapper">
          <ResponsiveLine
                   data={[
                      {
@@ -58,7 +58,7 @@ class Responsiveline extends Component {
                      },
                      {
                         "id": "Garbage",
-                        "color": "hsl(0, 0%, 67%)",
+                        "color": "hsl(204, 70%, 50%)",
                         "data": [
                             {
                               "x": "1",
